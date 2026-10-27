@@ -24,7 +24,7 @@ jobs:
         uses: docker/login-action@v3
         with:
           registry: ghcr.io
-          username: ${{ github.actor }}
+          username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build and push image
@@ -33,7 +33,7 @@ jobs:
           context: .
           push: true
           tags: |
-            ghcr.io/venom248/duanjuku:latest
-            ghcr.io/venom248/duanjuku:${{ github.sha }}
+            ghcr.io/venom-zen/duanjuku:latest
+            ghcr.io/venom-zen/duanjuku:${{ github.sha }}
           labels: |
-            org.opencontainers.image.source=https://github.com/venom248/duanjuku
+            org.opencontainers.image.source=https://github.com/venom-zen/duanjuku
